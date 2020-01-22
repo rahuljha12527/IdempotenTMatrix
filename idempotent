@@ -1,0 +1,31 @@
+
+public class solution {
+	
+    public static void multiply(int mat[][],int res[][],int size){
+        
+        for(int i=0;i<size;i++){
+            for(int j=0;j<size;j++){
+                res[i][j]=0;
+                
+                for(int k=0;k<size;k++){
+                    res[i][j]+=mat[i][k]*mat[k][j];
+                }
+            }
+        }
+    }
+    
+	public static boolean CheckIdempotent(int mat[][], int size){ 
+		
+        int res[][]=new int[size][size];
+        multiply(mat,res,size);
+        
+        for(int i=0;i<size;i++){
+            for(int j=0;j<size;j++){
+                if(mat[i][j]!=res[i][j]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
